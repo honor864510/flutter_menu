@@ -7,13 +7,43 @@ environment:
   sdk: ^3.11.0
 
 dependencies:
+  # Flutter sdk
   flutter:
     sdk: flutter
 
+  # Util
+  meta: any
+
+  # Platform
+  window_manager: ^0.5.1
+
+  # Util
+  dependency_initializer: ^3.0.0
+  
+  # State management
+  control: ^1.0.0-dev.1
+
+  # Logger
+  l: ^5.0.1
+
 dev_dependencies:
+  # Testing
   flutter_test:
     sdk: flutter
+  
+  # Linting
   flutter_lints: ^6.0.0
+
+  # Code generation
+  build_runner: ^2.11.1
+  flutter_gen_runner: ^5.12.0
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/images/
+
+flutter_gen:
+  output: lib/src/common/constant/
+  line_length: 120
