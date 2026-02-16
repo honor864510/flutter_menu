@@ -13,15 +13,18 @@ dependencies:
 
   # Util
   meta: any
+  collection: any
+  json_annotation: ^4.10.0
+  dependency_initializer: ^3.0.0
 
   # Platform
   window_manager: ^0.5.1
 
-  # Util
-  dependency_initializer: ^3.0.0
-  
   # State management
   control: ^1.0.0-dev.1
+
+  # Storage
+  shared_preferences: ^2.5.4
 
   # Logger
   l: ^5.0.1
@@ -36,6 +39,7 @@ dev_dependencies:
 
   # Code generation
   build_runner: ^2.11.1
+  json_serializable: ^6.12.0
   flutter_gen_runner: ^5.12.0
 
 flutter:
