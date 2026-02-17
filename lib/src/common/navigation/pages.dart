@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_menu/src/feature/home/widget/home_screen.dart';
+import 'package:flutter_menu/src/feature/menu/widget/meal_categories_screen.dart';
 
 /// Type definition for the page.
 @immutable
@@ -35,4 +36,12 @@ final class HomePage extends AppPage {
 
   @override
   Set<String> get tags => {'HomePage'};
+}
+
+final class MealCategoriesPage extends AppPage {
+  const MealCategoriesPage({super.key = const ValueKey('MealCategoriesPage'), super.arguments = const {}})
+    : super(name: 'MealCategoriesPage', child: const MealCategoriesScreen());
+
+  @override
+  Set<String> get tags => {'MealCategoriesPage'};
 }

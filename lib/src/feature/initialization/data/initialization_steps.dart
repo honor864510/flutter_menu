@@ -7,7 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_menu/src/common/controller/controller_observer.dart';
 import 'package:flutter_menu/src/common/model/dependency.dart';
 import 'package:flutter_menu/src/feature/initialization/data/initialization_process.dart';
+import 'package:flutter_menu/src/feature/menu/data/repository/menu_repository.dart';
 import 'package:l/l.dart';
+import 'package:pocketbase/pocketbase.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:window_manager/window_manager.dart';
 
 final List<InitializationStep<InitializationProcess, Dependency>> initializationSteps = [
@@ -44,6 +47,30 @@ final List<InitializationStep<InitializationProcess, Dependency>> initialization
           await windowManager.focus();
         });
       }
+    },
+  ),
+
+  InitializationStep<InitializationProcess, Dependency>(
+    title: 'SharedPreferences',
+    run: (process) async {
+      process.sharedPreferences = await SharedPreferences.getInstance();
+    },
+  ),
+
+  InitializationStep<InitializationProcess, Dependency>(
+    title: 'PocketBase sdk',
+    run: (process) async {
+      // TODO: Get ip address from config
+      final pb = PocketBase('http://127.0.0.1:8090');
+
+      process.pocketBase = pb;
+    },
+  ),
+
+  InitializationStep<InitializationProcess, Dependency>(
+    title: 'Repository',
+    run: (process) async {
+      process.menuRepository = MenuRepository(preferences: process.sharedPreferences!, pb: process.pocketBase!);
     },
   ),
 ];

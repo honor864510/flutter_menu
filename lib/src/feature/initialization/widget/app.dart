@@ -17,5 +17,8 @@ class App extends StatelessWidget {
   final Dependency dependency;
 
   @override
-  Widget build(BuildContext context) => MaterialApp(home: AppNavigator(pages: const [HomePage()]));
+  Widget build(BuildContext context) => InheritedDependencies(
+    dependencies: dependency,
+    child: MaterialApp(home: AppNavigator(pages: const [MealCategoriesPage()])),
+  );
 }

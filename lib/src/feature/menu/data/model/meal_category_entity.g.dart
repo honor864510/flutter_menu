@@ -11,6 +11,7 @@ MealCategoryEntity _$MealCategoryEntityFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       name: json['name'] as String? ?? '',
       parentCategoryId: json['parentCategoryId'] as String?,
+      imageUrl: json['image'] as String?,
     );
 
 Map<String, dynamic> _$MealCategoryEntityToJson(MealCategoryEntity instance) =>
@@ -18,4 +19,5 @@ Map<String, dynamic> _$MealCategoryEntityToJson(MealCategoryEntity instance) =>
       'id': instance.id,
       'name': instance.name,
       'parentCategoryId': instance.parentCategoryId,
+      'image': instance.imageUrl,
     };

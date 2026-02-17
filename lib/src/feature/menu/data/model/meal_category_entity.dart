@@ -8,7 +8,7 @@ typedef MealCategoryID = String;
 @immutable
 @JsonSerializable()
 final class MealCategoryEntity {
-  const MealCategoryEntity({required this.id, this.name = '', this.parentCategoryId});
+  const MealCategoryEntity({required this.id, this.name = '', this.parentCategoryId, this.imageUrl});
 
   /// Connect the generated [_$MealCategoryEntityFromJson] function to the `fromJson`
   /// factory.
@@ -29,6 +29,10 @@ final class MealCategoryEntity {
   @JsonKey(name: 'parentCategoryId')
   final String? parentCategoryId;
 
+  ///
+  @JsonKey(name: 'image')
+  final String? imageUrl;
+
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
@@ -36,9 +40,10 @@ final class MealCategoryEntity {
     return other is MealCategoryEntity &&
         other.id == id &&
         other.name == name &&
-        other.parentCategoryId == parentCategoryId;
+        other.parentCategoryId == parentCategoryId &&
+        other.imageUrl == imageUrl;
   }
 
   @override
-  int get hashCode => id.hashCode ^ name.hashCode ^ parentCategoryId.hashCode;
+  int get hashCode => id.hashCode ^ name.hashCode ^ parentCategoryId.hashCode ^ imageUrl.hashCode;
 }

@@ -26,6 +26,9 @@ dependencies:
   # Storage
   shared_preferences: ^2.5.4
 
+  # Network
+  pocketbase: ^0.23.2
+
   # Logger
   l: ^5.0.1
 

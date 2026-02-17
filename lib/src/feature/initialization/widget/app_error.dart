@@ -15,6 +15,7 @@ class AppError extends StatelessWidget {
   final StackTrace? stackTrace;
 
   @override
-  Widget build(BuildContext context) =>
-      MaterialApp(home: Center(child: Text('AppError: $error, StackTrace: $stackTrace')));
+  Widget build(BuildContext context) => MaterialApp(
+    home: Scaffold(body: Center(child: Text('AppError: $error, StackTrace: $stackTrace'))),
+  );
 }
